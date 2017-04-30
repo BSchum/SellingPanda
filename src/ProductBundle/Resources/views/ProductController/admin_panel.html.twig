@@ -1,0 +1,45 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}SellingPanda - Products{% endblock %}
+
+{% block content %}
+    <a class="link" href="/admin/addForm">
+        <div class="panel panel-default category" style="margin:10px;">
+            <div class="panel-body">
+                <p>Add a product</p>
+            </div>
+        </div>
+    </a>
+    <a class="link" href="/admin/deleteForm">
+        <div class="panel panel-default category" style="margin:10px;">
+            <div class="panel-body">
+                <p>Delete products</p>
+            </div>
+        </div>
+    </a>
+    <a class="link" href="/admin/modifyForm">
+        <div class="panel panel-default category" style="margin:10px;">
+            <div class="panel-body">
+                <p>Modify products</p>
+            </div>
+        </div>
+    </a>
+    <a class="link" href="/admin/orderList">
+        <div class="panel panel-default category" style="margin:10px;">
+            <div class="panel-body">
+                <p>Orders list</p>
+            </div>
+        </div>
+    </a>
+
+    <style>
+        .category:hover{
+            border:1px solid black;
+            color:black;
+        }
+        .link{
+            text-decoration: none;
+            color:black;
+        }
+    </style>
+{% endblock %}

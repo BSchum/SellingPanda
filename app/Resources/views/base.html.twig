@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>{%  block title %}{% endblock %}</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">SellingPanda</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="{% if app.request.pathinfo == '/'%}active{% endif %}"><a href="/">Home</a></li>
+            <li class="{% if app.request.pathinfo == '/category'%}active{% endif %}"><a href="/category">Category</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            {% if app.user != null %}
+                <li><p style="color:white">Vous etes connecté <br>en tant que <a href="/profile">{{ app.user.username }}</a></p></li>
+                <br>
+                <li><p style="color:white"><a href="/cart">Panier</a></p></li>
+                <li><p style="color:white;margin-left: 20px"><a href="/destroyCookie">Se deconnecter</a></p></li>
+            {% else %}
+                <li><a href="http://localhost:8000/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li><a href="http://localhost:8000/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            {% endif %}
+        </ul>
+    </div>
+</nav>
+<div id="content">
+    {%  block content %}{% endblock %}
+</div>
+
+</body>
+</html>

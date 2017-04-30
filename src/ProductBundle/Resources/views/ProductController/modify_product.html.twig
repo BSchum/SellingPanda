@@ -1,0 +1,55 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}SellingPanda - Admin - Add{% endblock %}
+
+{% block content %}
+    <h2 style="margin-left: 45%">Modifier un produit</h2>
+    <form class="form-horizontal" method="post" action="/admin/modifiedProduct">
+        {% for product in products %}
+            <h1>{{ product.name }}</h1>
+            <input type="hidden" class="form-control" id="productID" name="productID" value="{{product.id}}">
+            <div class="form-group">
+                <label for="productName" class="col-sm-2 control-label">Nom</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="productName" name="productName" value="{{product.name}}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="price" class="col-sm-2 control-label">Price</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" id="price" name="price" value="{{ product.price}}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="comment" class="col-sm-2 control-label">Description</label>
+                <div class="col-sm-10">
+                    <textarea type="textarea" class="form-control" id="comment" name="description">{{ product.description}}</textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="category" class="col-sm-2 control-label">Categorie</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="category" name="category"  value="{{ product.category}}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="stock" class="col-sm-2 control-label">Stock</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" id="stock" name="stock"  value="{{ product.stock}}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="img" class="col-sm-2 control-label">Image</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="img" name="img" value="{{ product.img }}">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-default">Modifier</button>
+                </div>
+            </div>
+        {% endfor %}
+    </form>
+
+{% endblock %}

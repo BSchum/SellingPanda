@@ -1,0 +1,50 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}SellingPanda - Admin - Add{% endblock %}
+
+{% block content %}
+    <h2 style="margin-left: 45%">Ajouter un produit</h2>
+    <form class="form-horizontal" method="post" action="/admin/addProduct">
+        <div class="form-group">
+            <label for="productName" class="col-sm-2 control-label">Nom</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="productName" name="productName" placeholder="Nom du produit">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="price" class="col-sm-2 control-label">Price</label>
+            <div class="col-sm-10">
+                <input type="number" class="form-control" id="price" name="price" placeholder="Price">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="comment" class="col-sm-2 control-label">Description</label>
+            <div class="col-sm-10">
+                <textarea type="textarea" class="form-control" id="comment" name="description" placeholder="Description du produit"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="category" class="col-sm-2 control-label">Categorie</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="category" name="category" placeholder="Categorie du produit">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="stock" class="col-sm-2 control-label">Stock</label>
+            <div class="col-sm-10">
+                <input type="number" class="form-control" id="stock" name="stock" placeholder="Stock actuel du produit">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="img" class="col-sm-2 control-label">Image</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="img" name="img" placeholder="Lien vers l'image">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-default">Ajouter</button>
+            </div>
+        </div>
+    </form>
+{% endblock %}

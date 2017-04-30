@@ -1,0 +1,43 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}SellingPanda - Admin - Add{% endblock %}
+
+{% block content %}
+
+    <div class="container">
+        <h2>Commandes</h2>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Address</th>
+                <th>Date</th>
+                <th>Produit</th>
+                <th>Prix total</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for order in orders %}
+            <tr>
+                <td>{{ order.name }}</td>
+                <td>{{ order.surname }}</td>
+                <td>{{ order.address }}</td>
+                <td>{{ order.date|date("Y-m-D") }}</td>
+                <td>
+                    {% set i = 0 %}
+                    {% for product in order.cart %}
+                        {{ product.name }}*{{ order.qte[i] }}<br>
+                        {% set i = i+1 %}
+                    {% endfor %}
+                </td>
+                <td>{{ order.totalPrice }}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+
+
+{% endblock %}

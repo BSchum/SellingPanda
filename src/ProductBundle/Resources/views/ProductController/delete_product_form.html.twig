@@ -1,0 +1,32 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}SellingPanda - Products{% endblock %}
+
+{% block content %}
+    <h2 style="margin-left: 10px">Nos produits :</h2>
+    <div class="row" style="padding:10px;">
+        <form method="post" action="/admin/deleteProduct" onsubmit="return confirm('Do you really want to submit the form?');">
+            {% set i = 0 %}
+            {% for product in products %}
+                <div class="col-md-3">
+                    <div class="panel panel-default" style="">
+                        <div class="panel-heading">
+                            <h3 class="panel-title"><a href="/product/{{product.name|url_encode }}">{{ product.name }}</a></h3>
+                        </div>
+                        <div class="panel-body">
+                            <div style="height: 250px;"><img style="width: 100%;max-height:200px" class="img-thumbnail" src="{{ product.img }}" alt=""></div>
+                            Description: <br>
+                            {{ product.description }}<br>
+                            Prix: <br>
+                            {{ product.price }} euros <br>
+                            <label for="{{ product.id }}"><input type="checkbox" name="{{ product.id }}">Delete</label>
+                        </div>
+                    </div>
+                </div>
+                {% set i = i+1 %}
+            {% endfor %}
+            <input type="submit">
+        </form>
+    </div>
+
+{% endblock %}

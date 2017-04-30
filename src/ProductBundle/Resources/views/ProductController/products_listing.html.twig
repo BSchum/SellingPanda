@@ -1,0 +1,24 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}SellingPanda - Products{% endblock %}
+
+{% block content %}
+    <h2 style="margin-left: 10px">Nos produits :</h2>
+    <div class="row" style="padding:10px;">
+    {% for product in products %}
+        <div class="col-md-3">
+            <div class="panel panel-default" style="height:400px">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><a href="/product/{{product.name|url_encode }}">{{ product.name }}</a></h3>
+                </div>
+                <div class="panel-body">
+                    <div style="height: 250px;"><img style="width: 100%;max-height:200px" class="img-thumbnail" src="{{ product.img }}" alt=""></div>
+                    Prix: <br>
+                    {{ product.price }} euros <br>
+                    <a type="button" class="btn btn-default" href="/product/{{product.name|url_encode }}">Plus d'information</a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}SellingPanda - {% for product in product %}{{ product.name }}{% endfor %}{% endblock %}
+
+{% block content %}
+    {% for product in product %}
+        {% set value = 0 %}
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">{{ product.name }}</h3>
+            </div>
+            <div class="panel-body">
+                Stock :
+                {% if product.stock > 30 %}
+                <p>Huge stock</p>
+                {% else %}
+                <p>Low Stock</p>
+                {% endif %}
+                <p>Description: {{ product.description }}</p><br>
+                <p>Prix : {{ product.price }} euros</p>
+                <div>
+                    <form method="post" action="/cart/add/{{ product.id }}">
+                        <input type="number" name="howmuch" class="form-control" value="1" min="1" max="{{ product.stock }}" style="width:25%;margin:10px">
+                        <input type="submit" class="btn btn-default" value="Ajouter au panier">
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

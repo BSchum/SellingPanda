@@ -1,0 +1,33 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}SellingPanda - Admin - Add{% endblock %}
+
+{% block content %}
+    <h2 style="margin-left: 45%">Commander</h2>
+    <form class="form-horizontal" method="post" action="/cart/ordered">
+            <div class="form-group">
+                <label for="name" class="col-sm-2 control-label">Prénom</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="surname" class="col-sm-2 control-label">Nom</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="surname" name="surname" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="address" class="col-sm-2 control-label">Address</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="address" name="address" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-default">Commander</button>
+                </div>
+            </div>
+    </form>
+
+{% endblock %}

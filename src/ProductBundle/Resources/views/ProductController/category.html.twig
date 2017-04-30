@@ -1,0 +1,26 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}SellingPanda - Category{% endblock %}
+
+{% block content %}
+
+    {% for category in categorys %}
+        <a class="link" href="/products/{{ category[1] }}">
+            <div class="panel panel-default category" style="margin:10px;">
+                <div class="panel-body">
+                    <p>{{ category[1] }}</p>
+                </div>
+            </div>
+        </a>
+    {% endfor %}
+    <style>
+        .category:hover{
+            border:1px solid black;
+            color:black;
+        }
+        .link{
+            text-decoration: none;
+            color:black;
+        }
+    </style>
+{% endblock %}
